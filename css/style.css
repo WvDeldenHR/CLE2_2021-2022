@@ -1,11 +1,22 @@
-html, body {
+* {
     margin: 0;
-    border: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
-/*Navbar*/
+/*Login*/
+.ltm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.ltf {
+    display: flex;
+    flex-direction: column;
+}
