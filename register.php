@@ -56,6 +56,8 @@
                     <p class="d-flex justify-content-center">Al een Account?<a class="pl-halve" href="login.php">Aanmelden</a></p>
                 </div>
             </div>
-        </div>    
+        </div>
+        
+        <sript href="js/main.js"></script>
     </body>
 </html>

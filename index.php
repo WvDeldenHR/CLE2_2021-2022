@@ -16,9 +16,28 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <a href="login.php">Login</a>
-        <a href="register.php">Register</a>
+    <nav class="d-flex">
+        <div class="align-items-center d-flex navbar-img">
+            <a href="index.php"><img src="images/cdm_logo.png"></a>
+        </div>
+
+        <div class="align-items-center d-flex navbar-links navbar-left">
+            <a class="navbar-link1-color" href="inplannen.php">Inlpannen</a>
+            <a class="navbar-link2-color" href="over-mij.php">Over Mij</a>
+            <a class="navbar-link3-color" href="locatie.php">Locatie</a>
+        </div>
+        
+        <div class="align-items-center d-flex pr-5 navbar-links navbar-right">
+            <a class="navbar-link4-color" href="login.php">Aanmelden</a>
+            <a class="navbar-link4-color" href="register.php">Registreer</a>
+
+            <!-- <a class="navbar-link4-color" href="dashboard.php">Account</a>
+            <a class="navbar-link4-color" href="loguit.php">Uitloggen</a> -->
+        </div>
+    </nav>
+
+    <div>
+        Placholder
     </div>
 
     <sript href="js/main.js"></script>

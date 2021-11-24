@@ -33,5 +33,7 @@
                 </div>
             </div>
         </div>
+
+        <sript href="js/main.js"></script>
     </body>
 </html>
