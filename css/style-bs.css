@@ -5,6 +5,13 @@
 .d-flex {
     display: flex;
 }
+.d-none {
+    display: none;
+}
+
+.flex-25 {
+    flex: 25;
+}
 
 .flex-direction-column {
     flex-direction: column;
@@ -32,4 +39,12 @@
 
 .pt-3 {
     padding-top: 3vh;
+}
+
+.ptb-2 {
+    padding: 2vh 0;
+}
+
+.ptb-3 {
+    padding: 3vh 0;
 }

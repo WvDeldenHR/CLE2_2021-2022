@@ -26,27 +26,29 @@ body {
 /*Login en Register*/
     /*lr = Login en Register*/
 .lr-box {
+    border-radius: 7.5px;
     padding: 1vh 2vw;
-    width: 25vw;
-    height: 55vh;
+    width: 27.5vw;
     background-color: var(--secondarycolor);
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
     -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
 }
 
-.lr-img {
-    padding: 2vh 0;
-}
-
-.lr-img img {
+.lr-box img {
     width: 25vh;
     filter: invert();
 }
 
 .lr-label {
-    padding-bottom: 1vh;
+    padding-bottom: 1.5vh;
+    font-size: 1.2em;
     font-weight: bold;
+}
+
+.lr-label-small {
+    font-size: 0.9em !important;
+    color: #262626;
 }
 
 .lr-input {
@@ -55,6 +57,16 @@ body {
     border-bottom: 1px solid var(--accentcolor1);
     padding: 1vh 1vw;
     background-color: var(--secondarycolor)
+}
+
+.lr-select {
+    flex: 48;
+    margin: 0 1vw;
+    border: none;
+    border-bottom: 1px solid var(--accentcolor1);
+    padding: 1vh 1vw;
+    height: fit-content;
+    background-color: var(--secondarycolor);
 }
 
 .lr-button {

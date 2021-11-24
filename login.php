@@ -18,19 +18,19 @@
     <body>
         <div class="align-items-center d-flex h-100 justify-content-center">
             <div class="d-flex flex-direction-column lr-box">
-                <div class="d-flex justify-content-center lr-img">
-                    <img src="images/cdm_logo.png">
+                <div class="d-flex justify-content-center ptb-2">
+                    <a href="index.php"><img src="images/cdm_logo.png"></a>
                 </div>
-                <form class="d-flex flex-direction-column ltf2" mehtod="POST">
+                <form class="d-flex flex-direction-column" mehtod="POST">
                     <label class="lr-label">Aanmelden</label>
-                        <input class="lr-input" type="text" id="email" name="email" placeholder="Email">
-                        <input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord">
+                        <input class="lr-input" type="email" id="email" name="email" placeholder="Email" required>
+                        <input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord" required>
                     <button class="lr-button" type="submit">Aanmelden</button>
                 </form>
-                <div class="d-flex flex-direction-column pt-3 lr-box-bottom">
+                <div class="d-flex flex-direction-column ptb-3 lr-box-bottom">
                     <a class="d-flex justify-content-center pb-1" href="">Wachtwoord Vergeten?</a>
                     <p class="d-flex justify-content-center">Nog geen account?<a class="pl-halve" href="register.php">Registreer</a></p>
-                <div>
+                </div>
             </div>
         </div>
     </body>
