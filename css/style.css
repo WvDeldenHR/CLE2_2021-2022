@@ -8,15 +8,82 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
-/*Login*/
-.ltm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+/*Temporary CSS*/
+:root {
+    --secondarycolor: #fafafa;
+    --accentcolor1: #c8b6ff;
+    --accentcolor1-dark: #4a3c75;
+    --accentcolor2: #e7c6ff;
+    --accentcolor2-dark: #e998eb;
 }
 
-.ltf {
-    display: flex;
-    flex-direction: column;
+body {
+    background: rgb(149,184,209);
+    background: linear-gradient(90deg, rgba(149,184,209,1) 0%, rgba(184,224,210,1) 35%, rgba(250,210,225,1) 100%);
+}
+
+/*Login en Register*/
+    /*lr = Login en Register*/
+.lr-box {
+    padding: 1vh 2vw;
+    width: 25vw;
+    height: 55vh;
+    background-color: var(--secondarycolor);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
+}
+
+.lr-img {
+    padding: 2vh 0;
+}
+
+.lr-img img {
+    width: 25vh;
+    filter: invert();
+}
+
+.lr-label {
+    padding-bottom: 1vh;
+    font-weight: bold;
+}
+
+.lr-input {
+    margin-bottom: 2vh;
+    border: none;
+    border-bottom: 1px solid var(--accentcolor1);
+    padding: 1vh 1vw;
+    background-color: var(--secondarycolor)
+}
+
+.lr-button {
+    margin-top: 2vh;
+    border: none;
+    border-radius: 5px;
+    padding: 1.5vh 0;
+    background-color: var(--accentcolor2);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.lr-button:hover {
+    background-color: var(--accentcolor2-dark);
+}
+
+.lr-box-bottom {
+    font-size: 0.9em;
+    color: #141414;
+}
+
+.lr-box-bottom a {
+    color: var(--accentcolor1);
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.lr-box-bottom a:hover {
+    color: var(--accentcolor1-dark);
+    text-decoration: underline;
 }

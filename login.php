@@ -16,17 +16,21 @@
     </head>
 
     <body>
-        <div class="ltm">
-            <div class="ltf">
-                <img src="">
-                <form class="ltf" mehtod="POST">
-                    <label>Email</label>
-                        <input type="text" id="email" name="email">
-                    <label>Wachtwoord</label>
-                        <input type="password" id="password" name="password">
-                    <button class="">Aanmelden</button>
+        <div class="align-items-center d-flex h-100 justify-content-center">
+            <div class="d-flex flex-direction-column lr-box">
+                <div class="d-flex justify-content-center lr-img">
+                    <img src="images/cdm_logo.png">
+                </div>
+                <form class="d-flex flex-direction-column ltf2" mehtod="POST">
+                    <label class="lr-label">Aanmelden</label>
+                        <input class="lr-input" type="text" id="email" name="email" placeholder="Email">
+                        <input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord">
+                    <button class="lr-button" type="submit">Aanmelden</button>
                 </form>
-            Nog geen account? <a href="register.php">Registreer</a>
+                <div class="d-flex flex-direction-column pt-3 lr-box-bottom">
+                    <a class="d-flex justify-content-center pb-1" href="">Wachtwoord Vergeten?</a>
+                    <p class="d-flex justify-content-center">Nog geen account?<a class="pl-halve" href="register.php">Registreer</a></p>
+                <div>
             </div>
         </div>
     </body>
