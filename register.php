@@ -23,7 +23,7 @@
                 </div>
                 <form class="d-flex flex-direction-column" method="POST">
                     <label class="lr-label">Registreer</label>
-                        <input class="lr-input" type="email" id="email" name="email" placeholder="Email" required>
+                        <input class="lr-input" type="email" id="email" name="email" placeholder="E-mail" required>
                         <input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord" required>
                         <input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord Bevestigen" required>
                     <label class="lr-label lr-label-small">Ouder</label>
@@ -50,14 +50,14 @@
                             </select>
                             <input class="lr-input flex-25" type="number" min="4" max="4" id="age_year_child" name="age_year_child" placeholder="Jaar" required>
                         </div>
-                    <button class="lr-button" type="submit">Registeren</button>
+                    <button class="lr-button" type="submit">Registreren</button>
                 </form>
                 <div class="d-flex flex-direction-column ptb-3 lr-box-bottom">
-                    <p class="d-flex justify-content-center">Al een Account?<a class="pl-halve" href="login.php">Aanmelden</a></p>
+                    <p class="d-flex justify-content-center">Al een account?<a class="pl-halve" href="login.php">Aanmelden</a></p>
                 </div>
             </div>
         </div>
-        
+
         <sript href="js/main.js"></script>
     </body>
 </html>

@@ -23,7 +23,7 @@
                 </div>
                 <form class="d-flex flex-direction-column" mehtod="POST">
                     <label class="lr-label">Aanmelden</label>
-                        <input class="lr-input" type="email" id="email" name="email" placeholder="Email" required>
+                        <input class="lr-input" type="email" id="email" name="email" placeholder="E-mail" required>
                         <input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord" required>
                     <button class="lr-button" type="submit">Aanmelden</button>
                 </form>

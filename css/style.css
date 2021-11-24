@@ -27,6 +27,7 @@ nav {
     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
     -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.15);
+    z-index: 10;
 }
 
 .navbar-img {
@@ -72,7 +73,6 @@ nav {
 .navbar-link4-color:hover {
     color: var(--accentcolor1-dark);
 }
-
 
 
 /*Login en Register*/
@@ -150,4 +150,28 @@ nav {
 .lr-box-bottom a:hover {
     color: var(--accentcolor1-dark);
     text-decoration: underline;
+}
+
+
+/*Home*/
+.background-img {
+    flex: 67.5;
+    background-color: var(--secondarycolor);
+}
+
+.background-img img {
+    width: 100%;
+    filter: /*blur(3px)*/ grayscale(0.5) saturate(2.4) hue-rotate(349deg);
+}
+
+.top-content {
+    flex: 32.5;
+    background-color: var(--accentcolor1);
+}
+
+.top-content h1 {
+    padding: 0 4vw;
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--secondarycolor);
 }

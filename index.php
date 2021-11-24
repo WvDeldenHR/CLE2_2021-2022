@@ -36,8 +36,16 @@
         </div>
     </nav>
 
-    <div>
-        Placholder
+    <div class="d-flex h-100">
+        <div class="d-flex background-img">
+            <img class="h-100" src="images/cdm-background.jpg">
+        </div>
+        <div class="d-flex top-content">
+            <h1 class="d-flex justify-content-center align-items-center" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h1>
+        </div>
+    </div>
+
+    <div class="h-100">
     </div>
 
     <sript href="js/main.js"></script>
