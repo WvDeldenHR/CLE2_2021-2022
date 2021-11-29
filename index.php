@@ -28,24 +28,17 @@
         </div>
         
         <div class="align-items-center d-flex pr-5 navbar-links navbar-right">
-            <a class="navbar-link4-color" href="login.php">Aanmelden</a>
-            <a class="navbar-link4-color" href="register.php">Registreer</a>
+            <a class="navbar-link4-color nla" href="login.php">Aanmelden</a>
+            <a class="navbar-link4-color nlr" href="register.php">Registreer</a>
 
             <!-- <a class="navbar-link4-color" href="dashboard.php">Account</a>
             <a class="navbar-link4-color" href="loguit.php">Uitloggen</a> -->
         </div>
     </nav>
 
-    <div class="d-flex h-100">
-        <div class="d-flex background-img">
-            <img class="h-100" src="images/cdm-background.jpg">
-        </div>
-        <div class="d-flex top-content">
-            <h1 class="d-flex justify-content-center align-items-center" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h1>
-        </div>
-    </div>
-
-    <div class="h-100">
+    <div class="d-flex">
+        <span class="white-shape"></span>
+        <img class="background-img" src="images/cdm-background.jpg">
     </div>
 
     <sript href="js/main.js"></script>
