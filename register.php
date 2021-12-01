@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" type="image/x-icon" href="images/cdm_icon.png">
         <!--    Main CSS    -->
             <link rel="stylesheet" href="css/style.css">
         <!--   Bootstrap Like CSS -->
