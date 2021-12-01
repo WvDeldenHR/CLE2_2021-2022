@@ -25,6 +25,10 @@
     height: 100vh
 }
 
+.mb-2 {
+    margin-bottom: 2vh;
+}
+
 .pb-1 {
     padding-bottom: 1vh;
 }
@@ -47,6 +51,10 @@
 
 .pt-3 {
     padding-top: 3vh;
+}
+
+.pt-10 {
+    padding-top: 10vh;
 }
 
 .ptb-2 {

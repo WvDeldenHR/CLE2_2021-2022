@@ -9,14 +9,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="images/icons/cdm_icon.png">
-        <!--    Main CSS    -->
-            <link rel="stylesheet" href="css/style.css">
-        <!--   Bootstrap Like CSS -->
-            <link rel="stylesheet" href="css/style-bs.css">
+        <link rel="stylesheet" href="css/style.css">    <!--    Main CSS    -->
+        <link rel="stylesheet" href="css/style-bs.css"> <!--   Bootstrap Like CSS -->
     </head>
 
     <body>
-        <!--  Navbar -->
+        <!--    Navbar  -->
         <nav class="d-flex pt-2">
             <div class="align-items-center d-flex navbar-img">
                 <a href="index.php"><img src="images/cdm_logo.png"></a>
@@ -27,17 +25,19 @@
                 <a class="navbar-link2-color" href="over-mij.php">Over Mij</a>
                 <a class="navbar-link3-color" href="locatie.php">Locatie</a>
             </div>
-                    
+
             <div class="align-items-center d-flex pr-5 navbar-links navbar-right">
+                <!--    Not Logged In   -->
                 <a class="navbar-link4-color navbar-button1" href="login.php">Aanmelden</a>
                 <a class="navbar-link4-color navbar-button2" href="register.php">Registreer</a>
 
+                <!--    Logged In   -->
                 <!-- <span class="navbar-user-name">Name User</span>
                 <span class="d-flex navbar-user-img-box dropbtn " onclick="myFunction()"></span>
-                        
+
                 <div class="dropdown">
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="dashboard.php"><img src="images/icons/user.png">Profile</a>
+                        <a href="dashboard.php"><img src="images/icons/user.png">Profiel</a>
                         <a href="account.php"><img src="images/icons/settings.png">Account Instellingen</a>
                         <a href="inplannen.php"><img src="images/icons/planning.png">Inplannen</a>
                         <a class="dropdown-line" href="logout.php"><img src="images/icons/logout.png">Uitloggen</a>
@@ -45,3 +45,5 @@
                 </div> -->
             </div>
         </nav>
+
+        <!--    Page Content    -->

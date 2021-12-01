@@ -1,23 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Chantal de Man - Inplannen</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" type="image/x-icon" href="images/icons/cdm_icon.png">
-        <!--    Main CSS    -->
-            <link rel="stylesheet" href="css/style.css">
-        <!--   Bootstrap Like CSS -->
-            <link rel="stylesheet" href="css/style-bs.css">
-    </head>
+<?php $Week = date('W');?>
+<?php include('layout_header.php');?>
+<!--    Header Layout   -->
 
-    <body>
-        <div class="">
-            <a href="index.php"></a>
-        </div>    
-    </body>
-</html>
+<div class="align-items-center d-flex h-100 justify-content-center">
+    <div class="inpl-box">
+        <div class="align-items-center d-flex justify-content-center inpl-box-top">
+            <button><</button>
+                <h2><?= 'Week ' . $Week;?></h2>
+            <button>></button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="cells:empty-cells;"></th>
+                    <th>Maandag</th>
+                    <th>Dinsdag</th>
+                    <th>Woensdag</th>
+                    <th>Donderdag</th>
+                    <th style="border-right:none!important">Vrijdag</th>
+                </tr>
+            <thead>
+            <tbody>
+                <tr>
+                    <td>9:00-10:00</td>
+                    <td>test</td>
+                </tr>
+                <tr>
+                    <td>10:00-11:00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--    Footer Layout   -->
+<?php include('layout_footer.php');?>

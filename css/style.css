@@ -19,7 +19,8 @@ body {
     --accentcolor2-dark: #e27396;
 }
 
-/*Navbar*/
+
+/*  Navbar  */
 nav {
     position: absolute;
     width: 100vw;
@@ -120,7 +121,7 @@ nav {
     background-color: var(--accentcolor1-dark);
 }
 
-/* Navbar Account Dropdown */
+    /* Navbar Account Dropdown */
 .dropdown {
     display: inline-block;
     position: relative;
@@ -135,7 +136,7 @@ nav {
     min-width: 15vw;
     top: 4vh;
     background-color: var(--whitecolor);
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.2);
     overflow: auto;
     z-index: 10;
 }
@@ -164,6 +165,29 @@ nav {
   
 .show {
     display: block;
+}
+
+
+/*  Home Page/Index Page   */
+.white-shape {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--whitecolor);
+    -webkit-clip-path: polygon(0% 15%, 0% 100%, 100% 100%);
+    clip-path: polygon(0% 15%, 0% 100%, 100% 100%);
+    z-index: 2;
+}
+
+.background-img {
+    flex: 67.5;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    filter: grayscale(0.5) saturate(2.4) hue-rotate(349deg);
+    -webkit-clip-path: polygon(0% 0%, 75% 0%, 50% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 75% 0%, 50% 100%, 0% 100%);
+    z-index: 3;
 }
 
 /*Login en Register*/
@@ -244,46 +268,12 @@ nav {
 }
 
 
-/*Home*/
-.white-shape {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-color: var(--whitecolor);
-    -webkit-clip-path: polygon(0% 15%, 0% 100%, 100% 100%);
-    clip-path: polygon(0% 15%, 0% 100%, 100% 100%);
-    box-shadow: 9px -11px 5px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 9px -11px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 9px -11px 5px 0px rgba(0,0,0,0.75);
-    z-index: 2;
-}
-
-.background-img {
-    flex: 67.5;
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    filter: grayscale(0.5) saturate(2.4) hue-rotate(349deg);
-    -webkit-clip-path: polygon(0% 0%, 75% 0%, 50% 100%, 0% 100%);
-    clip-path: polygon(0% 0%, 75% 0%, 50% 100%, 0% 100%);
-    box-shadow: 9px 8px 5px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 9px 8px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 9px 8px 5px 0px rgba(0,0,0,0.75);
-    z-index: 3;
-}
-
-/*Dashboard*/
-.dashboard-box {
-    /* background-color: var(--whitecolor);
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
-    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2); */
-}
-
+/*  Dashboard   */
 .dashboard-link-list {
     margin-right: 1vw;
     border-radius: 10px;
     width: 15vw;
+    height: fit-content;
     background-color: var(--whitecolor);
     box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.2);
     -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.2);
@@ -325,4 +315,97 @@ nav {
     box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.2);
     -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.2);
     -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+.dashboard-content label {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.dashboard-content h2 {
+    margin: 2vh 0 1vh -1vw;
+    border-top: 1px solid #dadada;
+    padding: 1vh 0;
+    font-size: 1.2em;
+}
+
+.dashboard-form {
+    padding: 2vh 1.5vw 2vh 3vw;
+}
+
+.dashboard-form-content {
+    display: flex;
+    padding: 1vh 0 2vh 0;
+}
+
+.dashboard-form-content p {
+    flex: 90;
+}
+
+.dashboard-form-content a {
+    flex: 10;
+    color: var(--accentcolor1);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.dashboard-form-content a:hover {
+    color: var(--accentcolor1-dark);
+    text-decoration: underline;
+}
+
+/*--    Inplannen   --*/
+    /* Inpl = Inplannen */
+.inpl-box {
+    width: 60vw;
+}
+
+.inpl-box-top {
+    margin-bottom: 1vh;
+    border-radius: 10px;
+    padding: 0.5vh 0;
+    background-color: var(--whitecolor) ;
+}
+
+.inpl-box-top button{
+    border: none;
+    border-radius: 10px;
+    padding: 0 0.5vw;
+    font-size: 1.75em;
+    background-color: var(--whitecolor);
+    cursor: pointer;
+}
+
+.inpl-box-top button:hover {
+    background-color: var(--accentcolor2);
+}
+
+.inpl-box-top h2 {
+    padding: 0 1vw;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.inpl-box table {
+    border-radius: 10px;
+    width: 60vw;
+    background-color: var(--whitecolor);
+}
+
+.inpl-box th {
+    border-right: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    padding: 1vh 0;
+    width: 10vw;
+}
+
+.inpl-box td {
+    border-right: 1px solid #dadada;
+    padding: 4vh 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.inpl-box td:hover {
+    background-color: #dadada;
 }

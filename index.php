@@ -1,31 +1,10 @@
-<?php include('layout_header.php')?> <!--Header Layout File-->
+<?php include('layout_header.php');?>
+<!--    Header Layout  -->
 
-    <div class="d-flex">
-        <span class="white-shape"></span>
-        <img class="background-img" src="images/cdm_background.jpg">
-    </div>
+<div class="d-flex">
+    <span class="white-shape"></span>
+    <img class="background-img" src="images/cdm_background.jpg">
+</div>
 
-        <script href="js/main.js"></script>
-        <script>
-            /* When the user clicks on the button, 
-            toggle between hiding and showing the dropdown content */
-            function myFunction() {
-                document.getElementById("myDropdown").classList.toggle("show");
-            }
-            
-            // Close the dropdown if the user clicks outside of it
-            window.onclick = function(event) {
-                if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                    }
-                }
-                }
-            }
-        </script>
-    </body>
-</html>
+<!--    Footer Layout   -->
+<?php include('layout_footer.php');?>
