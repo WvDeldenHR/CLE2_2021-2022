@@ -1,3 +1,7 @@
+<?php
+    require_once('db_connect.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" type="image/x-icon" href="images/cdm_icon.png">
+        <link rel="shortcut icon" type="image/x-icon" href="images/icons/cdm_icon.png">
         <!--    Main CSS    -->
             <link rel="stylesheet" href="css/style.css">
         <!--   Bootstrap Like CSS -->
@@ -22,36 +26,98 @@
                 <div class="d-flex justify-content-center ptb-2">
                     <a href="index.php"><img src="images/cdm_logo.png"></a>
                 </div>
-                <form class="d-flex flex-direction-column" method="POST">
+                <form class="d-flex flex-direction-column" action="" method="POST">
                     <label class="lr-label">Registreer</label>
-                        <input class="lr-input" type="email" id="email" name="email" placeholder="E-mail" required>
-                        <input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord" required>
-                        <input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord Bevestigen" required>
+                        <?php   
+                        //Email
+                            if (isset($errors['email'])) { echo
+                                '<div class="lr-error">
+                                    <span>' . $errors['email'] . '</span>
+                                    <input class="lr-input" type="email" id="email" name="email" placeholder="E-mail">
+                                </div>';
+                            } else { echo
+                                    '<input class="lr-input" type="email" id="email" name="email" placeholder="E-mail">';
+                            }
+                        //Password
+                            if (isset($errors['password'])) { echo
+                                '<div class="lr-error">
+                                    <span>' . $errors['password'] . '</span>
+                                    <input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord">
+                                </div>';
+                            } else { echo
+                                    '<input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord">';
+                            }
+                        //Password Checken
+                            if (isset($errors['password_check'])) { echo
+                                '<div class="lr-error">
+                                    <span>' . $errors['password_check'] . '</span>
+                                    <input class="lr-input" type="password" id="password_check" name="password_check" placeholder="Wachtwoord Bevestigen">
+                                </div>';
+                            } else { echo
+                                    '<input class="lr-input" type="password" id="password_check" name="password_check" placeholder="Wachtwoord Bevestigen">';
+                            }
+                        ?>
                     <label class="lr-label lr-label-small">Ouder</label>
-                        <input class="lr-input" type="text" id="firstname_parent" name="firstname_parent" placeholder="Naam Ouder" required>
-                        <input class="lr-input" type="text" id="lastname_parent" name="lastname_parent" placeholder="Achternaam Ouder" required>
-                        <input class="lr-input" type="number" min="10" max="10" id="phonenumber" name="phonenumber" placeholder="Telefoonnummer" required>
+                        <?php   
+                        //Firstname Parent
+                            if (isset($errors['firstname_parent'])) { echo
+                                '<div class="lr-error">
+                                    <span>' . $errors['firstname_parent'] . '</span>
+                                    <input class="lr-input" type="text" name="firstname_parent" placeholder="Voornaam">
+                                </div>';
+                            } else { echo
+                                    '<input class="lr-input" type="text" name="firstname_parent" placeholder="Voornaam">';
+                            }
+                        //Lastname Parent
+                            if (isset($errors['lastname_parent'])) { echo
+                                '<div class="lr-error">
+                                    <span>' . $errors['lastname_parent'] . '</span>
+                                    <input class="lr-input" type="text" name="lastname_parent" placeholder="Achternaam">
+                                </div>';
+                            } else { echo
+                                    '<input class="lr-input" type="text" name="lastname_parent" placeholder="Achternaam">';
+                            }
+                        //Phonenumber
+                            if (isset($errors['phonenumber'])) { echo
+                                '<div class="lr-error">
+                                    <span>' . $errors['phonenumber'] . '</span>
+                                    <input class="lr-input" type="text" name="phonenumber" placeholder="Telefoonnummer">
+                                </div>';
+                            } else { echo
+                                    '<input class="lr-input" type="text" name="phonenumber" placeholder="Telefoonnummer">';
+                            }
+                        ?>
                     <label class="lr-label lr-label-small">Kind</label>
-                        <input class="lr-input" type="text" id="firstname_child" name="firstname_child" placeholder="Naam Kind">
+                        <?php   
+                        //Firstname Child
+                            if (isset($errors['firstname_child'])) { echo
+                                '<div class="lr-error">
+                                    <span>' . $errors['firstname_child'] . '</span>
+                                    <input class="lr-input" type="text" name="firstname_child" placeholder="Naam Kind">
+                                </div>';
+                            } else { echo
+                                    '<input class="lr-input" type="text" name="firstname_child" placeholder="Naam Kind">';
+                            }
+                        ?>
                         <div class="d-flex lr-age">
-                            <input class="lr-input flex-25" type="number" min="1" max="2" id="age_day_child" name="age_day_child" placeholder="Dag" required>
-                            <select class="lr-select" type="" id="age_month_child" name="age_month_year" required>
-                                <option class="d-none" disabled selected value>Maand</option>
-                                <option value="Januar">Januari</option>
-                                <option value="Februari">Februari</option>
-                                <option value="Maart">March</option>
-                                <option value="April">April</option>
-                                <option value="Mei">Mei</option>
-                                <option value="Juni">Juni</option>
-                                <option value="Juli">Juli</option>
-                                <option value="Augustus">Augustus</option>
-                                <option value="September">September</option>
-                                <option value="November">November</option>
-                                <option value="December">December</option>
-                            </select>
-                            <input class="lr-input flex-25" type="number" min="4" max="4" id="age_year_child" name="age_year_child" placeholder="Jaar" required>
+                            <input class="lr-input w-100" type="number" name="age_day_child" placeholder="Dag">
+                                <select class="lr-select w-100" id="age_month_child" name="age_month_child">
+                                    <option class="d-none">Maand</option>
+                                    <option value="Januari">Januari</option>
+                                    <option value="Februari">Februari</option>
+                                    <option value="Maart">March</option>
+                                    <option value="April">April</option>
+                                    <option value="Mei">Mei</option>
+                                    <option value="Juni">Juni</option>
+                                    <option value="Juli">Juli</option>
+                                    <option value="Augustus">Augustus</option>
+                                    <option value="September">September</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            <input class="lr-input w-100" type="number" name="age_year_child" placeholder="Dag">
                         </div>
-                    <button class="lr-button" type="submit">Registreren</button>
+                    <button class="lr-button" type="submit" name="register">Registreren</button>
                 </form>
                 <div class="d-flex flex-direction-column ptb-3 lr-box-bottom">
                     <p class="d-flex justify-content-center">Al een account?<a class="pl-halve" href="login.php">Aanmelden</a></p>

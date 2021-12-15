@@ -227,7 +227,6 @@ nav {
 }
 
 .lr-select {
-    flex: 48;
     margin: 0 1vw;
     border: none;
     border-bottom: 1px solid var(--accentcolor1);
@@ -267,6 +266,21 @@ nav {
     text-decoration: underline;
 }
 
+.lr-error {
+    display: flex;
+    flex-direction: column;
+}
+
+.lr-error span {
+    padding-bottom: 0.75vh;
+    font-size: 0.85em;
+    color: #ed2f21;
+}
+
+.lr-error input {
+    border: 1px solid #ed2f21 !important;
+    border-radius: 4px;
+}
 
 /*  Dashboard   */
 .dashboard-link-list {

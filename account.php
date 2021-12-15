@@ -1,8 +1,9 @@
-<?php include('layout_header.php');?>
+<?php include('layouts/layout_header.php'); ?>
 <!--    Header Layout   -->
 
 <div class="align-items-center d-flex h-100 justify-content-center pt-10">
     <div class="d-flex dashboard-box">
+        <?php include('layouts/layout_dashboard.php'); ?>
         <div class="d-flex flex-direction-column dashboard-link-list">
             <h1>Name User</h1>
             <a href="dashboard.php"><img src="images/icons/user.png">Profiel</a>
@@ -15,7 +16,7 @@
             <form class="dashboard-form">
                 <label>E-mail</label>
                     <div class="dashboard-form-content">
-                        <p>email@test.nl</p>
+                        <p><?= $_SESSION['email']; ?></p>
                         <a href="">Wijzig</a>
                     </div>
                 <label>Wachtwoord</label>
@@ -25,7 +26,7 @@
                     </div>
                 <label>Telefoonnummer</label>
                     <div class="dashboard-form-content">
-                        <p>0612345678</p>
+                        <p><?= $_SESSION['phonenumber'] ?></p>
                         <a href="">Wijzig</a>
                     </div>
 
@@ -58,4 +59,4 @@
 </div>
 
 <!--    Footer Layout   -->
-<?php include('layout_footer.php')?>
+<?php include('layouts/layout_footer.php')?>

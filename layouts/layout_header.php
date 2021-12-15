@@ -1,3 +1,7 @@
+<?php
+    require_once('db_connect.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,21 +32,23 @@
 
             <div class="align-items-center d-flex pr-5 navbar-links navbar-right">
                 <!--    Not Logged In   -->
-                <a class="navbar-link4-color navbar-button1" href="login.php">Aanmelden</a>
-                <a class="navbar-link4-color navbar-button2" href="register.php">Registreer</a>
-
+                <?php if (!isset($_SESSION['email'])) { ?>
+                    <a class="navbar-link4-color navbar-button1" href="login.php">Aanmelden</a>
+                    <a class="navbar-link4-color navbar-button2" href="register.php">Registreer</a>
                 <!--    Logged In   -->
-                <!-- <span class="navbar-user-name">Name User</span>
-                <span class="d-flex navbar-user-img-box dropbtn " onclick="myFunction()"></span>
+                <?php } else { ?>
+                    <span class="navbar-user-name"><?= $_SESSION['email'] ?></span>
+                    <span class="d-flex navbar-user-img-box dropbtn " onclick="myFunction()"></span>
 
-                <div class="dropdown">
-                    <div id="myDropdown" class="dropdown-content">
-                        <a href="dashboard.php"><img src="images/icons/user.png">Profiel</a>
-                        <a href="account.php"><img src="images/icons/settings.png">Account Instellingen</a>
-                        <a href="inplannen.php"><img src="images/icons/planning.png">Inplannen</a>
-                        <a class="dropdown-line" href="logout.php"><img src="images/icons/logout.png">Uitloggen</a>
+                    <div class="dropdown">
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="dashboard.php"><img src="images/icons/user.png">Profiel</a>
+                            <a href="account.php"><img src="images/icons/settings.png">Account Instellingen</a>
+                            <a href="inplannen.php"><img src="images/icons/planning.png">Inplannen</a>
+                            <a class="dropdown-line" href="index.php?logout='1'"><img src="images/icons/logout.png">Uitloggen</a>
+                        </div>
                     </div>
-                </div> -->
+                <?php } ?>
             </div>
         </nav>
 
