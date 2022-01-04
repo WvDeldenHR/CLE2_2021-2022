@@ -1,5 +1,10 @@
 <?php 
-    include('db_connect.php');
+    require_once('db_connect.php');
+
+    // If user is logged in redirect to index
+    if (isset($_SESSION['email'])) {
+        header('location: index.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -27,29 +32,11 @@
                 </div>
                 <form class="d-flex flex-direction-column" action="login.php" method="POST">
                     <label class="lr-label">Aanmelden</label>
-                        <?php
-                        if (isset($errors['errorlogin'])) { echo
-                            '<div class="lr-error">
-                                <span>' . $errors['errorlogin'] . '</span>
-                            </div>';
-                        }
-                        //Email
-                            if (isset($errors['email'])) { echo
-                                '<div class="lr-error">
-                                    <input class="lr-input" type="email" id="email" name="email" placeholder="E-mail">
-                                </div>';
-                            } else { echo
-                                    '<input class="lr-input" type="email" id="email" name="email" placeholder="E-mail">';
-                            }
-                        //Password
-                            if (isset($errors['password'])) { echo
-                                '<div class="lr-error">
-                                    <input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord">
-                                </div>';
-                            } else { echo
-                                    '<input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord">';
-                            }
-                        ?>
+                        <span class="lr-error-span"><?= $errors['errorlogin'] ?? '' ?></span>
+                        <input class="lr-input" id="email" type="email" name="email" placeholder="E-mail" value="<?= $email ?? '' ?>" 
+                                    <?php if (isset($errors['email'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
+                        <input class="lr-input" id="password" type="password" name="password" placeholder="Wachtwoord" 
+                                    <?php if (isset($errors['password'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
                     <button class="lr-button" name="login" type="submit">Aanmelden</button>
                 </form>
                 <div class="d-flex flex-direction-column ptb-3 lr-box-bottom">

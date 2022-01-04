@@ -1,5 +1,10 @@
 <?php
     require_once('db_connect.php');
+
+    // If user is logged in redirect to index
+    if (isset($_SESSION['email'])) {
+        header('location: index.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,80 +33,40 @@
                 </div>
                 <form class="d-flex flex-direction-column" action="" method="POST">
                     <label class="lr-label">Registreer</label>
-                        <?php   
-                        //Email
-                            if (isset($errors['email'])) { echo
-                                '<div class="lr-error">
-                                    <span>' . $errors['email'] . '</span>
-                                    <input class="lr-input" type="email" id="email" name="email" placeholder="E-mail">
-                                </div>';
-                            } else { echo
-                                    '<input class="lr-input" type="email" id="email" name="email" placeholder="E-mail">';
-                            }
-                        //Password
-                            if (isset($errors['password'])) { echo
-                                '<div class="lr-error">
-                                    <span>' . $errors['password'] . '</span>
-                                    <input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord">
-                                </div>';
-                            } else { echo
-                                    '<input class="lr-input" type="password" id="password" name="password" placeholder="Wachtwoord">';
-                            }
-                        //Password Checken
-                            if (isset($errors['password_check'])) { echo
-                                '<div class="lr-error">
-                                    <span>' . $errors['password_check'] . '</span>
-                                    <input class="lr-input" type="password" id="password_check" name="password_check" placeholder="Wachtwoord Bevestigen">
-                                </div>';
-                            } else { echo
-                                    '<input class="lr-input" type="password" id="password_check" name="password_check" placeholder="Wachtwoord Bevestigen">';
-                            }
-                        ?>
+                        <span class="lr-error-span"><?= $errors['email'] ?? '' ?></span>
+                        <input class="lr-input" id="email" type="email" name="email" placeholder="E-mail" value="<?= $email ?? '' ?>" 
+                                    <?php if (isset($errors['email'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
+                                    
+                        <span class="lr-error-span"><?= $errors['password'] ?? '' ?></span>
+                        <span class="lr-error-span"><?= $errors['password_check'] ?? '' ?></span>
+                        <input class="lr-input" id="password" type="password" name="password" placeholder="Wachtwoord" 
+                                    <?php if (isset($errors['password'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }
+                                          else if (isset($errors['password_check'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
+                        <input class="lr-input" id="password_check" type="password" name="password_check" placeholder="Wachtwoord Bevestigen" 
+                                    <?php if (isset($errors['password_check'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
+
                     <label class="lr-label lr-label-small">Ouder</label>
-                        <?php   
-                        //Firstname Parent
-                            if (isset($errors['firstname_parent'])) { echo
-                                '<div class="lr-error">
-                                    <span>' . $errors['firstname_parent'] . '</span>
-                                    <input class="lr-input" type="text" name="firstname_parent" placeholder="Voornaam">
-                                </div>';
-                            } else { echo
-                                    '<input class="lr-input" type="text" name="firstname_parent" placeholder="Voornaam">';
-                            }
-                        //Lastname Parent
-                            if (isset($errors['lastname_parent'])) { echo
-                                '<div class="lr-error">
-                                    <span>' . $errors['lastname_parent'] . '</span>
-                                    <input class="lr-input" type="text" name="lastname_parent" placeholder="Achternaam">
-                                </div>';
-                            } else { echo
-                                    '<input class="lr-input" type="text" name="lastname_parent" placeholder="Achternaam">';
-                            }
-                        //Phonenumber
-                            if (isset($errors['phonenumber'])) { echo
-                                '<div class="lr-error">
-                                    <span>' . $errors['phonenumber'] . '</span>
-                                    <input class="lr-input" type="text" name="phonenumber" placeholder="Telefoonnummer">
-                                </div>';
-                            } else { echo
-                                    '<input class="lr-input" type="text" name="phonenumber" placeholder="Telefoonnummer">';
-                            }
-                        ?>
+                        <span class="lr-error-span"><?= $errors['firstname_parent'] ?? '' ?></span>
+                        <input class="lr-input" id="firstname_parent" type="text" name="firstname_parent" placeholder="Voornaam" value="<?= $firstname_parent ?? '' ?>" 
+                                    <?php if (isset($errors['firstname_parent'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
+                        <span class="lr-error-span"><?= $errors['lastname_parent'] ?? '' ?></span>
+                        <input class="lr-input" id="lastname_parent" type="text" name="lastname_parent" placeholder="Achternaam" value="<?= $lastname_parent ?? '' ?>" 
+                                    <?php if (isset($errors['lastname_parent'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
+                        <span class="lr-error-span"><?= $errors['phonenumber'] ?? '' ?></span>
+                        <input class="lr-input" id="phonenumber" type="tel" name="phonenumber" placeholder="Telefoonnummer" value="<?= $phonenumber ?? '' ?>" 
+                                    <?php if (isset($errors['phonenumber'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
+                                                                
                     <label class="lr-label lr-label-small">Kind</label>
-                        <?php   
-                        //Firstname Child
-                            if (isset($errors['firstname_child'])) { echo
-                                '<div class="lr-error">
-                                    <span>' . $errors['firstname_child'] . '</span>
-                                    <input class="lr-input" type="text" name="firstname_child" placeholder="Naam Kind">
-                                </div>';
-                            } else { echo
-                                    '<input class="lr-input" type="text" name="firstname_child" placeholder="Naam Kind">';
-                            }
-                        ?>
-                        <div class="d-flex lr-age">
-                            <input class="lr-input w-100" type="number" name="age_day_child" placeholder="Dag">
-                                <select class="lr-select w-100" id="age_month_child" name="age_month_child">
+                        <span class="lr-error-span"><?= $errors['firstname_child'] ?? '' ?></span>
+                        <input class="lr-input" id="firstname_child" type="text" name="firstname_child" placeholder="Naam Kind" value="<?= $firstname_child ?? '' ?>" 
+                                    <?php if (isset($errors['firstname_child'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
+                        
+                        <span class="lr-error-span"><?= $errors['age'] ?? '' ?></span>
+                        <div class="d-flex lr-age">    
+                            <input class="lr-input w-100" id="age_day_child" type="number" name="age_day_child" placeholder="Dag" value="<?= $age_day_child ?? '' ?>" 
+                                    <?php if (isset($errors['age_day_child'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
+                                <select class="lr-select w-100" id="age_month_child" name="age_month_child"
+                                            <?php if (isset($errors['age_month_child'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
                                     <option class="d-none">Maand</option>
                                     <option value="Januari">Januari</option>
                                     <option value="Februari">Februari</option>
@@ -115,7 +80,8 @@
                                     <option value="November">November</option>
                                     <option value="December">December</option>
                                 </select>
-                            <input class="lr-input w-100" type="number" name="age_year_child" placeholder="Dag">
+                            <input class="lr-input w-100" id="age_year_child" type="number" name="age_year_child" placeholder="Jaar" value="<?= $age_year_child ?? '' ?>" 
+                                        <?php if (isset($errors['age_year_child'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>          
                         </div>
                     <button class="lr-button" type="submit" name="register">Registreren</button>
                 </form>

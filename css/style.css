@@ -23,7 +23,7 @@ body {
 /*  Navbar  */
 nav {
     position: absolute;
-    width: 100vw;
+    width: 100%;
     min-height: 10vh;
     z-index: 10;
 }
@@ -266,19 +266,14 @@ nav {
     text-decoration: underline;
 }
 
-.lr-error {
-    display: flex;
-    flex-direction: column;
-}
-
-.lr-error span {
+.lr-error-span {
     padding-bottom: 0.75vh;
     font-size: 0.85em;
     color: #ed2f21;
 }
 
-.lr-error input {
-    border: 1px solid #ed2f21 !important;
+.lr-error-input {
+    border: 1px solid red !important;
     border-radius: 4px;
 }
 
@@ -343,29 +338,135 @@ nav {
     font-size: 1.2em;
 }
 
-.dashboard-form {
+.dashboard-account {
     padding: 2vh 1.5vw 2vh 3vw;
 }
 
-.dashboard-form-content {
+.dashboard-account-content {
     display: flex;
     padding: 1vh 0 2vh 0;
 }
 
-.dashboard-form-content p {
+.dashboard-account-content p, .dashboard-account-content input {
     flex: 90;
 }
 
-.dashboard-form-content a {
+.dashboard-account-content span {
     flex: 10;
+    color: var(--accentcolor1);
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dashboard-account-content span:hover {
+    color: var(--accentcolor1-dark);
+    text-decoration: underline;
+}
+
+.edit-acc-btn, .edit-acc-btn2, .edit-acc-btn3, .edit-acc-btn4, .edit-acc-btn5, .edit-acc-btn6, .edit-acc-btn7 {
+    border: 2px solid var(--accentcolor1);
+    border-radius: 6px;
+    padding: 1vh 1vw;
+    background-color: var(--accentcolor1);
+    color: var(--whitecolor);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.edit-acc-btn:hover, .edit-acc-btn2:hover, .edit-acc-btn3:hover, .edit-acc-btn4:hover, .edit-acc-btn5:hover, .edit-acc-btn6:hover, .edit-acc-btn7:hover {
+    border: 2px solid var(--accentcolor1-dark);
+    background-color: var(--accentcolor1-dark);
+    color: var(--whitecolor);
+}
+
+.dashboard-account-content-hide {
+    display: none !important;
+}
+
+.dashboard-account-content-reveal {
+    display: flex !important;
+}
+
+.dashboard-input, .dashboard-input-age {
+    margin-right: 7.5vw;
+    border: none;
+    border-bottom: 1px solid var(--accentcolor1);
+    padding: 1vh 1vw 1vh 0.5vw;
+    background-color: var(--whitecolor)
+}
+
+.dashboard-input-age {
+    flex: none !important;
+    width: 5vw;
+}
+
+.dashboard-select {
+    margin: 0 1vw;
+    border: none;
+    border-bottom: 1px solid var(--accentcolor1);
+    padding: 1vh 1vw;
+    width: 8.5vw;
+    height: fit-content;
+    background-color: var(--whitecolor);
+}
+
+.dashboard-delete-button {
+    border: 2px solid #ed2f21;
+    border-radius: 6px;
+    padding: 1vh 1vw;
+    background-color: transparent;
+    color: #ed2f21;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dashboard-delete-button:hover {
+    background-color: #ed2f21;
+    color: var(--whitecolor);
+}
+
+.dashboard-content table {
+    border-collapse: collapse;
+}
+
+.dashboard-content tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.dashboard-content td, .dashboard-content th {
+    padding: 1.5vh 0;
+    width: 10vw;
+    text-align: center;
+}
+
+.dashboard-content table a {
     color: var(--accentcolor1);
     text-decoration: none;
     transition: 0.2s;
 }
 
-.dashboard-form-content a:hover {
+.dashboard-content table a:hover {
     color: var(--accentcolor1-dark);
     text-decoration: underline;
+}
+
+.dashboard-delete-button {
+    border: 2px solid #ed2f21;
+    border-radius: 6px;
+    padding: 1vh 1vw;
+    background-color: transparent;
+    color: #ed2f21;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dashboard-delete-button:hover {
+    background-color: #ed2f21;
+    color: var(--whitecolor);
 }
 
 /*--    Inplannen   --*/
@@ -422,4 +523,23 @@ nav {
 
 .inpl-box td:hover {
     background-color: #dadada;
+}
+
+/*  No Account  */
+.no-account-content {
+    color: var(--blackcolor);
+    font-weight: bold;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.no-account-content a {
+    color: var(--accentcolor1);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.no-account-content a:hover {
+    color: var(--accentcolor1-dark);
+    text-decoration: underline;
 }

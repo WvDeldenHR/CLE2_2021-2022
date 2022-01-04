@@ -1,5 +1,12 @@
 <?php $Week = date('W');?>
-<?php include('layout_header.php');?>
+<?php 
+    include('layouts/layout_header.php');
+    
+    if (!isset($_SESSION['email'])) {
+        header('location: no-account.php');
+    }
+?>
+
 <!--    Header Layout   -->
 
 <div class="align-items-center d-flex h-100 justify-content-center">
@@ -34,4 +41,4 @@
 </div>
 
 <!--    Footer Layout   -->
-<?php include('layout_footer.php');?>
+<?php include('layouts/layout_footer.php');?>

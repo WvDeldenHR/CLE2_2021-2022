@@ -30,14 +30,14 @@
                 <a class="navbar-link3-color" href="locatie.php">Locatie</a>
             </div>
 
-            <div class="align-items-center d-flex pr-5 navbar-links navbar-right">
+            <div class="align-items-center d-flex flex-auto pr-5 navbar-links navbar-right">
                 <!--    Not Logged In   -->
                 <?php if (!isset($_SESSION['email'])) { ?>
                     <a class="navbar-link4-color navbar-button1" href="login.php">Aanmelden</a>
                     <a class="navbar-link4-color navbar-button2" href="register.php">Registreer</a>
                 <!--    Logged In   -->
                 <?php } else { ?>
-                    <span class="navbar-user-name"><?= $_SESSION['email'] ?></span>
+                    <span class="navbar-user-name"><?= $user['firstname_parent'].' '.$user['lastname_parent'] ?></span>
                     <span class="d-flex navbar-user-img-box dropbtn " onclick="myFunction()"></span>
 
                     <div class="dropdown">
@@ -45,6 +45,9 @@
                             <a href="dashboard.php"><img src="images/icons/user.png">Profiel</a>
                             <a href="account.php"><img src="images/icons/settings.png">Account Instellingen</a>
                             <a href="inplannen.php"><img src="images/icons/planning.png">Inplannen</a>
+                            <?php if($user['id'] == $admin) {
+                                echo '<a href="users.php"><img src="images/icons/users.png">Gebruikers</a>';
+                            } ?>
                             <a class="dropdown-line" href="index.php?logout='1'"><img src="images/icons/logout.png">Uitloggen</a>
                         </div>
                     </div>
