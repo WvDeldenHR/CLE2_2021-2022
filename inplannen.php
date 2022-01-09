@@ -2,11 +2,11 @@
 <?php 
     include('layouts/layout_header.php');
     
+    // Check is user is logged in
     if (!isset($_SESSION['email'])) {
         header('location: no-account.php');
     }
 ?>
-
 <!--    Header Layout   -->
 
 <div class="align-items-center d-flex h-100 justify-content-center">

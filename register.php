@@ -19,10 +19,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="images/icons/cdm_icon.png">
-        <!--    Main CSS    -->
-            <link rel="stylesheet" href="css/style.css">
-        <!--   Bootstrap Like CSS -->
-            <link rel="stylesheet" href="css/style-bs.css">
+        <link rel="stylesheet" href="css/style.css">    <!--    Main CSS    -->
+        <link rel="stylesheet" href="css/style-bs.css"> <!--   Bootstrap Like CSS -->
     </head>
 
     <body>
@@ -33,12 +31,12 @@
                 </div>
                 <form class="d-flex flex-direction-column" action="" method="POST">
                     <label class="lr-label">Registreer</label>
-                        <span class="lr-error-span"><?= $errors['email'] ?? '' ?></span>
+                        <span class="lr-error-span"><?= htmlentities($errors['email'] ?? '' ) ?></span>
                         <input class="lr-input" id="email" type="email" name="email" placeholder="E-mail" value="<?= $email ?? '' ?>" 
                                     <?php if (isset($errors['email'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
                                     
-                        <span class="lr-error-span"><?= $errors['password'] ?? '' ?></span>
-                        <span class="lr-error-span"><?= $errors['password_check'] ?? '' ?></span>
+                        <span class="lr-error-span"><?= htmlentities($errors['password'] ?? '' ) ?></span>
+                        <span class="lr-error-span"><?= htmlentities($errors['password_check'] ?? '' ) ?></span>
                         <input class="lr-input" id="password" type="password" name="password" placeholder="Wachtwoord" 
                                     <?php if (isset($errors['password'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }
                                           else if (isset($errors['password_check'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
@@ -46,22 +44,22 @@
                                     <?php if (isset($errors['password_check'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
 
                     <label class="lr-label lr-label-small">Ouder</label>
-                        <span class="lr-error-span"><?= $errors['firstname_parent'] ?? '' ?></span>
+                        <span class="lr-error-span"><?= htmlentities($errors['firstname_parent'] ?? '' ) ?></span>
                         <input class="lr-input" id="firstname_parent" type="text" name="firstname_parent" placeholder="Voornaam" value="<?= $firstname_parent ?? '' ?>" 
                                     <?php if (isset($errors['firstname_parent'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
-                        <span class="lr-error-span"><?= $errors['lastname_parent'] ?? '' ?></span>
+                        <span class="lr-error-span"><?= htmlentities($errors['lastname_parent'] ?? '' ) ?></span>
                         <input class="lr-input" id="lastname_parent" type="text" name="lastname_parent" placeholder="Achternaam" value="<?= $lastname_parent ?? '' ?>" 
                                     <?php if (isset($errors['lastname_parent'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
-                        <span class="lr-error-span"><?= $errors['phonenumber'] ?? '' ?></span>
+                        <span class="lr-error-span"><?= htmlentities($errors['phonenumber'] ?? '' ) ?></span>
                         <input class="lr-input" id="phonenumber" type="tel" name="phonenumber" placeholder="Telefoonnummer" value="<?= $phonenumber ?? '' ?>" 
                                     <?php if (isset($errors['phonenumber'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
                                                                 
                     <label class="lr-label lr-label-small">Kind</label>
-                        <span class="lr-error-span"><?= $errors['firstname_child'] ?? '' ?></span>
+                        <span class="lr-error-span"><?= htmlentities($errors['firstname_child'] ?? '' ) ?></span>
                         <input class="lr-input" id="firstname_child" type="text" name="firstname_child" placeholder="Naam Kind" value="<?= $firstname_child ?? '' ?>" 
                                     <?php if (isset($errors['firstname_child'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
                         
-                        <span class="lr-error-span"><?= $errors['age'] ?? '' ?></span>
+                        <span class="lr-error-span"><?= htmlentities($errors['age'] ?? '' ) ?></span>
                         <div class="d-flex lr-age">    
                             <input class="lr-input w-100" id="age_day_child" type="number" name="age_day_child" placeholder="Dag" value="<?= $age_day_child ?? '' ?>" 
                                     <?php if (isset($errors['age_day_child'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>

@@ -1,7 +1,7 @@
 <?php 
     include('layouts/layout_header.php');
     
-    //Check if user is logged in
+    // Check if user is logged in
     if (!isset($_SESSION['email'])) {
         header('location: no-account.php');
     }

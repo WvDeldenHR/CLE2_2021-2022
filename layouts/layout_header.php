@@ -37,7 +37,7 @@
                     <a class="navbar-link4-color navbar-button2" href="register.php">Registreer</a>
                 <!--    Logged In   -->
                 <?php } else { ?>
-                    <span class="navbar-user-name"><?= $user['firstname_parent'].' '.$user['lastname_parent'] ?></span>
+                    <span class="navbar-user-name"><?= htmlentities($user['firstname_parent']).' '.htmlentities($user['lastname_parent']) ?></span>
                     <span class="d-flex navbar-user-img-box dropbtn " onclick="myFunction()"></span>
 
                     <div class="dropdown">
@@ -45,7 +45,7 @@
                             <a href="dashboard.php"><img src="images/icons/user.png">Profiel</a>
                             <a href="account.php"><img src="images/icons/settings.png">Account Instellingen</a>
                             <a href="inplannen.php"><img src="images/icons/planning.png">Inplannen</a>
-                            <?php if($user['id'] == $admin) {
+                            <?php if ($user['id'] == $admin) {  // Check if user is admin
                                 echo '<a href="users.php"><img src="images/icons/users.png">Gebruikers</a>';
                             } ?>
                             <a class="dropdown-line" href="index.php?logout='1'"><img src="images/icons/logout.png">Uitloggen</a>

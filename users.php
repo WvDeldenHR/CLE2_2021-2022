@@ -39,7 +39,7 @@
                         <td><?= $user['age_day_child'].' '.$user['age_month_child'].' '.$user['age_year_child'] ?></td>
                         <td>
                             <form action="" method="post">
-                                <input type="hidden" name="id" value="<?= $user['id'] ?>">
+                                <input type="hidden" name="id" value="<?= htmlentities($user['id']) ?>">
                                 <button class="dashboard-delete-button" type="submit" name="delete_user">Verwijderen</button>
                             </form>
                         </td>

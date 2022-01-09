@@ -18,10 +18,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
         <link rel="shortcut icon" type="image/x-icon" href="images/icons/cdm_icon.png">
-        <!--    Main CSS    -->
-            <link rel="stylesheet" href="css/style.css">
-        <!--   Bootstrap Like CSS -->
-            <link rel="stylesheet" href="css/style-bs.css">
+        <link rel="stylesheet" href="css/style.css">    <!--    Main CSS    -->
+        <link rel="stylesheet" href="css/style-bs.css"> <!--   Bootstrap Like CSS -->
     </head>
 
     <body>
@@ -32,7 +30,7 @@
                 </div>
                 <form class="d-flex flex-direction-column" action="login.php" method="POST">
                     <label class="lr-label">Aanmelden</label>
-                        <span class="lr-error-span"><?= $errors['errorlogin'] ?? '' ?></span>
+                        <span class="lr-error-span"><?= htmlentities($errors['errorlogin'] ?? '' ) ?></span>
                         <input class="lr-input" id="email" type="email" name="email" placeholder="E-mail" value="<?= $email ?? '' ?>" 
                                     <?php if (isset($errors['email'])) { echo 'style="border: 1px solid #ed2f21; border-radius: 4px;"'; }?>>
                         <input class="lr-input" id="password" type="password" name="password" placeholder="Wachtwoord" 
