@@ -88,3 +88,6 @@ editBtn7.addEventListener('click', ()=>{
   dataArea7.classList.toggle('dashboard-account-content-hide')
   editArea7.classList.toggle('dashboard-account-content-reveal');
 });
+
+
+//Inplannen

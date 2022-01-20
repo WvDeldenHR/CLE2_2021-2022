@@ -366,7 +366,76 @@ if (isset($_SESSION['email'])) {
 }
 
 //Reservation
+if(isset($_POST['plan_date'])) {
+    $user_id = $_POST['user_id'];
+    $date = $_POST['date'];
 
+    $errors = [];
+    if($user_id == "") {
+        $errors['user_id'] = "Niet Ingelogd";
+    }
+    if($date == "") {
+        $errors['date'] = "Voer datum in om een afspraak te maken";
+    }
+
+    if(empty($errors)) {
+        $query = "INSERT INTO reservations (user_id, date)
+                    VALUES ('$user_id', '$date')";
+
+        $result = mysqli_query($db, $query)
+        or die('Database Error: '.mysqli_error($db).' with query: '.$query);
+
+        if($result) {
+            header("location:inplannen.php");
+            exit;
+        }
+    }
+}
+
+$query = "SELECT * FROM reservations";
+$result = mysqli_query($db, $query) or die ('Error: ' . $query );
+
+//Loop through the result to create a custom array
+$reservations = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $reservations[] = $row;
+}
+
+
+if(isset($_SESSION['email'])) {
+    $query = "SELECT * FROM reservations WHERE user_id = '".$user['id']."'";
+    $result = mysqli_query($db, $query) or die ('Error: ' . $query);
+
+    $reservation = mysqli_fetch_assoc($result);
+
+}
+
+
+// $reservationId = mysqli_escape_string($db, $_POST['id']);
+
+// $query = "SELECT * FROM reservations WHERE id = '$reservationId'";
+// $result = mysqli_query($db, $query) or die ('Error: ' . $query);
+
+// $reservation = mysqli_fetch_assoc($result);
+
+
+
+if(isset($_POST['edit_date'])) {
+    $date = $_POST['date'];
+    // Error codes for when input fields are empty or incorrect
+    if($date == "") {                                               // Check if empty
+        $errors['date'] = "Datum kan niet leeg zijn";
+    }
+
+    if(empty($errors)) {
+        $edit = mysqli_query($db,"UPDATE reservations SET date='$date'");
+        $result = mysqli_query($db, $query) or die('Database Error: '.mysqli_error($db).' with query: '.$query);
+        if($result) {
+            header("location: inplannen.php");
+            exit;
+        }
+    } 
+}
 
 //Close connection
 mysqli_close($db);

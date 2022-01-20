@@ -1,3 +1,6 @@
+.align-items-baseline {
+    align-items: baseline;
+}
 .align-items-center {
     align-items: center;
 }
@@ -7,6 +10,10 @@
 
 .b-none {
     border: none;
+}
+
+.cursor-default {
+    cursor: default;
 }
 
 .d-flex {
@@ -19,11 +26,9 @@
 .flex-auto {
     flex: auto;
 }
-
 .flex-25 {
     flex: 25;
 }
-
 .flex-90 {
     flex: 90;
 }
@@ -35,7 +40,6 @@
 .justify-content-center {
     justify-content: center;
 }
-
 .justify-content-end {
     justify-content: end;
 }
@@ -55,6 +59,9 @@
 }
 .mb-50 {
     margin-bottom: 50vh;
+}
+.mtb-2 {
+    margin: 2vh 0;
 }
 
 .pb-1 {

@@ -482,16 +482,22 @@ nav {
     background-color: var(--whitecolor) ;
 }
 
-.inpl-box-top button{
+.inpl-box-top h1 {
+    font-size: 1.25em;
+}
+
+.inpl-box-top a {
     border: none;
     border-radius: 10px;
     padding: 0 0.5vw;
     font-size: 1.75em;
     background-color: var(--whitecolor);
+    color: var(--blackcolor);
+    text-decoration: none;
     cursor: pointer;
 }
 
-.inpl-box-top button:hover {
+.inpl-box-top a:hover {
     background-color: var(--accentcolor2);
 }
 
@@ -499,6 +505,10 @@ nav {
     padding: 0 1vw;
     font-size: 1.1em;
     font-weight: 500;
+}
+
+.inpl-box-current {
+    background-color: var(--accentcolor2);
 }
 
 .inpl-box table {
@@ -515,14 +525,72 @@ nav {
 }
 
 .inpl-box td {
-    border-right: 1px solid #dadada;
-    padding: 4vh 0;
+    border: 1px solid #dadada;
     text-align: center;
+}
+
+/* .inpl-box td:hover {
+    background-color: #dadada;
+} */
+
+.inpl-box-content td{
+    padding: 2vh 0.8vw;
+    height: 20vh;
+}
+
+.inpl-box-content-date {
+    color: #7c7c7c;
+}
+
+.inpl-box-content-img {
+    padding: 4vh 0 1vh 0;
+    opacity: 0.75;
+}
+
+.inpl-box-btn {
+    border: none;
+    border-radius: 4px;
+    padding: 0.75vh 0.3vw;
+    background-color: var(--accentcolor1);
+    color: var(--whitecolor);
+    transition: 0.2s;
     cursor: pointer;
 }
 
-.inpl-box td:hover {
-    background-color: #dadada;
+.inpl-box-btn:hover {
+    background-color: var(--accentcolor1-dark);
+}
+
+.inpl-box-content-alt {
+    height: 16vh;
+}
+
+.inpl-box-content-alt span {
+    padding: 0 0.25vw;
+}
+
+.inpl-btn-edit {
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.inpl-btn-edit:hover {
+    opacity: 0.5;
+}
+
+.inpl-btn-delete {
+    color: #ed2f21;
+    font-size: 3em;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.inpl-btn-delete:hover {
+    opacity: 0.5;;
+}
+
+.inpl-box-bottom td {
+    padding: 1vh 0;
 }
 
 /*  No Account  */
@@ -542,4 +610,78 @@ nav {
 .no-account-content a:hover {
     color: var(--accentcolor1-dark);
     text-decoration: underline;
+}
+
+/*  Inplannen   */
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    overflow: auto;
+    z-index: 2;
+}
+
+.inpl-modal-content {
+    margin: auto;
+    border-radius: 5px;
+    padding: 20px;
+    width: 25vw;
+    background-color: var(--whitecolor);
+}
+
+.inpl-close-btn {
+    float: right;
+    font-size: 2.1em;
+    font-weight: bold;
+    color: #aaaaaa;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.inpl-close-btn:hover, .inpl-close-btn:focus {
+    color: #000;
+}
+
+.inpl-modal-btn {
+    border: none;
+    border-radius: 5px;
+    padding: 1vh 1vw;
+    color: var(--whitecolor);
+    background-color: var(--accentcolor1);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.inpl-modal-btn:hover {
+    background-color: var(--accentcolor1-dark);
+}
+
+/*  Edit    */
+.edit-box {
+    border-radius: 5px;
+    padding: 2vh 4vw;
+    background-color: var(--whitecolor);
+    width: 30vw;
+    height: 20vh;
+}
+.edit-box input {
+    margin: 3vh 0;
+}
+.edit-box button {
+    border: none;
+    border-radius: 5px;
+    padding:  1vh 1vw;
+    background-color: var(--accentcolor1);
+    color: var(--whitecolor);
+    cursor: pointer;
+}
+
+.edit-box button:hover {
+    background-color: var(--accentcolor1-dark);
 }

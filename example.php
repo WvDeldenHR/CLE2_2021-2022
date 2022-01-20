@@ -1,41 +1,40 @@
 <?php
     include('layouts/layout_header.php');
 
-    // Check if user is logged in
-    if (!isset($_SESSION['email'])) {
-        header('location: no-account.php');
+/* Set locale to Dutch */
+setlocale(LC_ALL, 'nl_NL');
+setlocale (LC_TIME, "Dutch");
+/* Output: vrijdag 22 december 1978 */
+echo strftime("%A %e %B %Y", mktime(0, 0, 0, 1, 22, 1978));
+
+/* try different possible locale names for german */
+// $loc_nl = setlocale(LC_ALL, 'nl_NL@euro', 'nl_NL', 'nl', 'nl');
+// echo "Preferred locale for german on this system is '$loc_nl'";
+
+    $duration = 30;
+    $cleanup = 0;
+    $start = "09:00";
+    $end = "15:00";
+
+    function timeslots($duration, $cleanup, $start, $end) {
+        $start = new DateTime($start);
+        $end = new DateTime($end);
+        $interval = new DateInterval("PT".$duration."M");
+        $cleanupInterval = new DateInterval("PT".$duration."M");
+        $slots = array();
+
+        for($intStart = $start; $intStart<$end; $intStart->add($interval)->add($cleanupInterval)) {
+            $endPeriod = clone $intStart;
+            $endPeriod->add($interval);
+            if($endPeriod>$end) {
+                break;
+            }
+
+            $slots = $intStart->format("H:iA")."-". $endPeriod->format("H:iA");
+        }
+
+        return $slots;
     }
-
-    setlocale(LC_ALL, 'nl_NL');
-    setlocale (LC_ALL, "Dutch");
-
-    // $duration = 30;
-    // $cleanup = 0;
-    // $start = "09:00";
-    // $end = "15:00";
-
-    // function timeslots($duration, $cleanup, $start, $end) {
-    //     $start = new DateTime($start);
-    //     $end = new DateTime($end);
-    //     $interval = new DateInterval("PT".$duration."M");
-    //     $cleanupInterval = new DateInterval("PT".$duration."M");
-    //     $slots = array();
-
-    //     for($intStart = $start; $intStart<$end; $intStart->add($interval)->add($cleanupInterval)) {
-    //         $endPeriod = clone $intStart;
-    //         $endPeriod->add($interval);
-    //         if($endPeriod>$end) {
-    //             break;
-    //         }
-
-    //         $slots = $intStart->format("H:iA")."-". $endPeriod->format("H:iA");
-    //     }
-
-    //     return $slots;
-    // }
-
-
-
 
 
     $dt = new DateTime;
@@ -47,8 +46,6 @@
     $year = $dt->format('o');
     $week = $dt->format('W');
     $month = $dt->format('F');
-
-    $day = $dt->format('Y m d')
 ?>
 <!--    Header Layout   -->
 
@@ -62,46 +59,41 @@
                 <a href="<?php echo $_SERVER['PHP_SELF'].'?week='.($week+1).'&year='.$year; ?>">></a>
             </div>
         </div>
-
-        <?php
-            // do { 
-            //     echo $dt->format('l');
-            //     $dt->modify('+1 day');
-            // } while ($week == $dt->format('W'));
-        ?>
-
         <table cellspacing="0" class="">
             <thead>
                 <tr>
                     <th></th>
-                    <?php do { if($dt->format('d M Y') == date('d M Y')) { ?>
-                            <th class='inpl-box-current'><?= $dt->format('l')?></th>
-                       <?php } else { ?>
-                            <th><?= $dt->format('l') ?></th>
-                            <?php if ($day == $reservation['date']) { ?>
-                                <h1>Test</h1>
-                                <?php } ?>
-                            <?php } $dt->modify('+1 day');
-                        } while ($week == $dt->format('W'))?>
-                                      
+                    <?php 
+                        do { 
+                            if($dt->format('d M Y') == date('d M Y')) {
+                                echo "<th class='inpl-box-current'>". $dt->format('l') ."</th>";
+                            } else {
+                                echo "<th>". $dt->format('l')  ."</th>";
+                            }
+                            $dt->modify('+1 day');
+                        } while ($week == $dt->format('W')); 
+                    ?>
                 </tr>
             </thead>
             <tbody>
+                <?php
+                    // $timeslots = timeslots($duration, $cleanup, $start, $end);
+                    // foreach((array) $timeslots as $ts) { 
+                ?>
                 <tr class="inpl-box-content">
                     <td>9:00 - 16:00+</td>
-                    <?php //if ($day == $reservation['date']) { ?>
                     <td>
                         <div class="d-flex flex-direction-column">
-                                <span class="inpl-box-content-date"><?= $dt->format('d M')  ?></span>
-                                <span class="inpl-box-content-img"><img src="images/icons/planning.png"></span>
-                                <button class="inpl-box-btn">Maak Afspraak</button>
+                            <span class="inpl-box-content-date"><?= htmlentities($dt->format('d M')) ?></span>
+                            <span><img src="images/icons/planning.png"></span>
+                            <button id="myBtn">Maak Afspraak</button>
 
-                                <div id="myModal" class="modal inpl-modal">
+                            <div id="myModal" class="modal">
                         
                                 <div class="inpl-modal-content">
                                 <span class="inpl-close-btn">&times;</span>
                                     <div class="align-items-center d-flex flex-direction-column justify-content-center">
-                                        <h2 class="pb-1">Maandag <?php ?></h2>
+                                        <h2 class="pb-1">Maandag <?= date("d"); ?></h2>
                                         <form class="d-flex flex-direction-column" action="" method="POST">
                                             <span class="lr-error-span"><?= htmlentities($errors['user_id'] ?? '' ) ?></span>
                                             <input type="hidden" id="user_id" name="user_id"  value="<?= htmlentities($user['id']) ?>">
@@ -114,35 +106,21 @@
                             </div>
                         </div>
                     </td>
-                   <?php// } else {?>
-                    <td>
-                        <div class="d-flex flex-direction-column">
-                                <span class="inpl-box-content-date"><?= htmlentities($dt->format('d M')) ?></span>
-                                <span class="pt-2">09:00 - 16:00</span>
-                                <div class="align-items-baseline d-flex justify-content-center pt-3 inpl-box-content-alt">
-                                <span class="inpl-btn-edit"><img src="images/icons/edit.png"></span>
-                                <span class="inpl-btn-delete">&times;</span> 
-                                </div>
-                        </div>
-                    </td>
-                    <?php// }?>
                 </tr>
+                <?php //} ?>
                 <tr class="inpl-box-bottom">
                     <td></td>
-                    <?php for ($i = 0; $i < 5; $i++) { ?>
                     <td>
                         <div class="align-items-center d-flex justify-content-center">
                             <img src="images/icons/users.png"><?= "0/4" ?>
                         </div>    
                     </td>
-                    <?php } ?>
+                    <td>
+                        <div class="align-items-center d-flex justify-content-center">
+                            <img src="images/icons/users.png"><?= "0/4" ?>
+                        </div>    
+                    </td>
                 </tr>
-
-                <?php foreach ($reservations as $reservation) { ?>
-                    <tr>
-                        
-                </tr>
-                <?php } ?>
             </tbody>
         </table>
     </div>
@@ -150,17 +128,20 @@
 
 <script>
 // Get the modal
-// var modal = document.getElementById("myModal");
+var modal = document.getElementById("myModal");
 
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
 
-var modal = document.getElementsByClassName("inpl-modal")[0];
-
-var btn = document.getElementsByClassName("inpl-box-content-btn")[0];
+// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("inpl-close-btn")[0];
 
+// When the user clicks the button, open the modal 
 btn.onclick = function() {
   modal.style.display = "flex";
 }
+
+// When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }

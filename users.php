@@ -31,12 +31,12 @@
                 </tr>
                 <?php foreach ($users as $user) { ?>
                     <tr>
-                        <td><?= $user['email'] ?></td>
-                        <td><?= $user['firstname_parent'] ?></td>
-                        <td><?= $user['lastname_parent'] ?></td>
-                        <td><?= $user['phonenumber'] ?></td>
-                        <td><?= $user['firstname_child'] ?></td>
-                        <td><?= $user['age_day_child'].' '.$user['age_month_child'].' '.$user['age_year_child'] ?></td>
+                        <td><?= htmlentities($user['email']) ?></td>
+                        <td><?= htmlentities($user['firstname_parent']) ?></td>
+                        <td><?= htmlentities($user['lastname_parent']) ?></td>
+                        <td><?= htmlentities($user['phonenumber']) ?></td>
+                        <td><?= htmlentities($user['firstname_child']) ?></td>
+                        <td><?= htmlentities($user['age_day_child']).' '.htmlentities($user['age_month_child']).' '.htmlentities($user['age_year_child']) ?></td>
                         <td>
                             <form action="" method="post">
                                 <input type="hidden" name="id" value="<?= htmlentities($user['id']) ?>">

@@ -1,5 +1,7 @@
 <?php
     require_once('db_connect.php');
+
+    require_once "libs/Mobile_Detect.php";
 ?>
 
 <!DOCTYPE html>
