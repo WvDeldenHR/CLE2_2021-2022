@@ -1,8 +1,19 @@
 <?php
     require_once('db_connect.php');
 
-    require_once "libs/Mobile_Detect.php";
+    require_once('libs/Mobile_Detect.php');
+    $detect = new Mobile_Detect;
+    $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'Tablet' : 'Phone') : 'Computer');
+    
+    function debug_to_console($data) {
+        $output = $data;
+        if (is_array($output))
+            $output = implode(',', $output);
 ?>
+<script>
+    console.log('Device: <?= $output ?>  ');
+</script>
+<?php } debug_to_console($deviceType); ?>
 
 <!DOCTYPE html>
 <html lang="en">
